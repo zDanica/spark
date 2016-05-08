@@ -29,7 +29,7 @@ import org.apache.spark.mllib.stat.MultivariateOnlineSummarizer
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
 /**
- * An example of how to use [[org.apache.spark.sql.DataFrame]] for ML. Run with
+ * An example of how to use for ML. Run with
  * {{{
  * ./bin/run-example ml.DataFrameExample [options]
  * }}}

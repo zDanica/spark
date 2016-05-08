@@ -115,7 +115,7 @@ object AvroConversionUtil extends Serializable {
 }
 
 /**
- * Implementation of [[org.apache.spark.api.python.Converter]] that converts
+ * Implementation of  that converts
  * an Avro IndexedRecord (e.g., derived from AvroParquetInputFormat) to a Java Map.
  */
 class IndexedRecordToJavaConverter extends Converter[IndexedRecord, JMap[String, Any]]{
@@ -129,7 +129,7 @@ class IndexedRecordToJavaConverter extends Converter[IndexedRecord, JMap[String,
 }
 
 /**
- * Implementation of [[org.apache.spark.api.python.Converter]] that converts
+ * Implementation of  that converts
  * an Avro Record wrapped in an AvroKey (or AvroValue) to a Java Map. It tries
  * to work with all 3 Avro data mappings (Generic, Specific and Reflect).
  */

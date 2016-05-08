@@ -21,7 +21,7 @@ package org.apache.spark.examples
 import scala.math.random
 
 import org.apache.spark._
-
+import org.apache.spark.SparkConf
 /** Computes an approximation to pi */
 object SparkPi {
   def main(args: Array[String]) {

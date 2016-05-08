@@ -28,7 +28,7 @@ import org.apache.spark.sql.{Dataset, Row, SparkSession}
 /**
  * A simple example demonstrating how to write your own learning algorithm using Estimator,
  * Transformer, and other abstractions.
- * This mimics [[org.apache.spark.ml.classification.LogisticRegression]].
+ * This mimics LogisticRegression
  * Run with
  * {{{
  * bin/run-example ml.DeveloperApiExample
