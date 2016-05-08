@@ -179,9 +179,9 @@
     <libthrift.version>0.9.2</libthrift.version>
     <antlr4.version>4.5.2-1</antlr4.version>
     <jpam.version>1.1</jpam.version>
+    <session.executionRootDirectory>${java.io.tmpdir}}</session.executionRootDirectory>
 
     <test.java.home>${java.home}</test.java.home>
-    <test.exclude.tags></test.exclude.tags>
 
     <!-- Package to use when relocating shaded classes. -->
     <spark.shade.packageName>org.spark_project</spark.shade.packageName>
@@ -211,7 +211,8 @@
       Overridable test home. So that you can call individual pom files directly without
       things breaking.
     -->
-    <spark.test.home>${session.executionRootDirectory}</spark.test.home>
+    <spark.test.home>E:\JAVAWorkSpace\Spark_Git\spark_test</spark.test.home>
+    <test_classpath>E:\JAVAWorkSpace\Spark_Git\spark_test\test</test_classpath>
 
     <PermGen>64m</PermGen>
     <MaxPermGen>512m</MaxPermGen>
@@ -681,7 +682,7 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>1.10.19</version>
+        <version>1.10.18</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -2180,7 +2181,6 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
                   </action>
                 </pluginExecution>
                 <pluginExecution>
@@ -2193,7 +2193,6 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
                   </action>
                 </pluginExecution>
                 <pluginExecution>
@@ -2206,7 +2205,6 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -2335,16 +2333,12 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.17</version>
         <configuration>
-          <verbose>false</verbose>
           <failOnViolation>false</failOnViolation>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <failOnWarning>false</failOnWarning>
           <sourceDirectories>${basedir}/src/main/java,${basedir}/src/main/scala</sourceDirectories>
           <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
           <configLocation>dev/checkstyle.xml</configLocation>
           <outputFile>${basedir}/target/checkstyle-output.xml</outputFile>
-          <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
-          <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
         </configuration>
         <executions>
           <execution>
