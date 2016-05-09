@@ -20,18 +20,13 @@ package org.apache.spark.examples
 
 import org.apache.spark._
 
-
 object HdfsTest {
 
-  /** Usage: HdfsTest [file] */
   def main(args: Array[String]) {
-    if (args.length < 1) {
-      System.err.println("Usage: HdfsTest <file>")
-      System.exit(1)
-    }
-    val sparkConf = new SparkConf().setAppName("HdfsTest")
+
+    val sparkConf = new SparkConf().setAppName("HdfsTest").setMaster("local")
     val sc = new SparkContext(sparkConf)
-    val file = sc.textFile(args(0))
+    val file = sc.textFile("hdfs://hmaster:9000/zh/data/sougou/SogouQ.mini")
     val mapped = file.map(s => s.length).cache()
     for (iter <- 1 to 10) {
       val start = System.currentTimeMillis()

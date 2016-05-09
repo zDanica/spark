@@ -29,6 +29,7 @@ object RDDRelation {
     val spark = SparkSession
       .builder
       .appName("RDDRelation")
+      .master("local")
       .getOrCreate()
 
     // Importing the SparkSession gives access to all the SQL functions and implicit conversions.
@@ -73,4 +74,5 @@ object RDDRelation {
     spark.stop()
   }
 }
+
 // scalastyle:on println
