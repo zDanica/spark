@@ -27,11 +27,20 @@ object RDDTest {
     // wordCount.foreach(println)
     println("*********************************")
 
-    val cogroup1 = rdd1.cogroup(rdd1, 4)
-    val groupBy1 = rdd1.groupByKey(4)
+    var beg = System.currentTimeMillis()
+    val cogroup1 = rdd1.join(rdd2, 4).count()
 
-    println(cogroup1.partitions.length)
-    println(groupBy1.partitions.length)
+    val period_1 = System.currentTimeMillis() - beg
+
+    beg = System.currentTimeMillis()
+    val rdd3 = rdd1.repartition(4)
+    val rdd4 = rdd1.repartition(4)
+    val cogroup2 = rdd3.join(rdd4, 4).count()
+    val period_2 = System.currentTimeMillis() - beg
+    // val groupBy1 = rdd1.groupByKey(4)
+    println(period_2 - period_1 + "***********************************")
+    // println(cogroup1.partitions.length)
+    // println(groupBy1.partitions.length)
 
 
     // scalastyle:on println
